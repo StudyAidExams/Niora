@@ -1,204 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>TaskFlow – Earn by Completing Simple Tasks</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TaskEarn – Earn by Completing Simple Tasks</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --primary:#5f2eea;
-  --secondary:#00c2ff;
-  --dark:#0f172a;
-  --light:#f8fafc;
-}
-
 *{box-sizing:border-box}
 
 body{
   margin:0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-  background: var(--light);
-  color:#111;
+  font-family:'Inter',Arial,sans-serif;
+  color:#e5e7eb;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.08), transparent 40%),
+    radial-gradient(circle at 80% 20%, rgba(255,255,255,0.06), transparent 35%),
+    radial-gradient(circle at 50% 80%, rgba(255,255,255,0.05), transparent 40%),
+    linear-gradient(180deg,#020617,#020617,#020617);
 }
 
 /* ===== HEADER ===== */
 header{
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  color:#fff;
-  padding:20px;
+  background:
+    radial-gradient(circle at top, rgba(255,255,255,0.12), transparent 60%),
+    linear-gradient(135deg,#020617,#020617,#020617);
+  padding:32px 16px;
+  text-align:center;
+  border-bottom:1px solid rgba(255,255,255,0.08);
 }
 
-.nav{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  max-width:1100px;
-  margin:auto;
-}
-
-.logo{
-  font-size:22px;
-  font-weight:800;
+header h1{
+  margin:0;
+  font-size:28px;
+  font-weight:700;
   letter-spacing:0.5px;
 }
 
-.nav a{
-  color:#fff;
+header p{
+  margin-top:8px;
+  font-size:15px;
+  opacity:0.9;
+}
+
+/* ===== NAV ===== */
+nav{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  padding:14px;
+  background:rgba(2,6,23,0.85);
+  backdrop-filter: blur(6px);
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+nav a{
   text-decoration:none;
-  margin-left:15px;
+  color:#c7d2fe;
   font-weight:600;
+  padding:7px 16px;
+  border-radius:20px;
+  transition:all .25s ease;
+}
+
+nav a:hover{
+  background:rgba(99,102,241,0.18);
+  color:#fff;
+}
+
+/* ===== CONTAINER ===== */
+.container{
+  max-width:1050px;
+  margin:auto;
+  padding:40px 16px;
 }
 
 /* ===== HERO ===== */
 .hero{
-  padding:70px 20px;
-  text-align:center;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+  align-items:center;
 }
 
-.hero h1{
-  font-size:36px;
-  max-width:700px;
-  margin:0 auto 15px;
-  line-height:1.2;
+.hero-text h2{
+  font-size:30px;
+  margin-bottom:14px;
+  color:#fff;
 }
 
-.hero p{
-  font-size:17px;
-  opacity:0.95;
-  max-width:600px;
-  margin:0 auto 30px;
+.hero-text p{
+  font-size:16px;
+  line-height:1.7;
+  color:#cbd5f5;
 }
 
-.hero-buttons{
+.cta-buttons{
+  margin-top:22px;
   display:flex;
-  gap:15px;
-  justify-content:center;
+  gap:14px;
   flex-wrap:wrap;
 }
 
 .btn{
-  padding:14px 28px;
-  border-radius:30px;
-  font-weight:700;
+  padding:13px 26px;
+  border-radius:10px;
+  font-weight:600;
   text-decoration:none;
   display:inline-block;
 }
 
 .btn.primary{
-  background:#fff;
-  color:var(--primary);
+  background:linear-gradient(135deg,#6366f1,#38bdf8);
+  color:#020617;
 }
 
 .btn.secondary{
-  border:2px solid #fff;
-  color:#fff;
+  border:2px solid #6366f1;
+  color:#c7d2fe;
+  background:transparent;
 }
 
-/* ===== STATS ===== */
-.stats{
-  background:#fff;
-  margin:-40px auto 40px;
-  max-width:900px;
+/* ===== IMAGE ===== */
+.hero img{
+  width:100%;
   border-radius:16px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.08);
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  padding:30px;
-  text-align:center;
-}
-
-.stat h3{
-  font-size:24px;
-  margin:0;
-  color:var(--primary);
-}
-
-.stat p{
-  margin:5px 0 0;
-  font-size:14px;
-  opacity:0.7;
+  box-shadow:0 20px 50px rgba(0,0,0,0.45);
 }
 
 /* ===== FEATURES ===== */
-.section{
-  padding:60px 20px;
-  max-width:1100px;
-  margin:auto;
-}
-
-.section h2{
-  text-align:center;
-  font-size:28px;
-  margin-bottom:40px;
-}
-
 .features{
+  margin-top:70px;
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:25px;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:24px;
 }
 
-.feature{
-  background:#fff;
-  padding:25px;
-  border-radius:16px;
-  box-shadow:0 8px 25px rgba(0,0,0,0.05);
+.feature-card{
+  background:rgba(255,255,255,0.95);
+  color:#111827;
+  padding:24px;
+  border-radius:14px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.25);
 }
 
-.feature h4{
+.feature-card h3{
   margin-top:0;
+  color:#4338ca;
+  font-size:18px;
 }
 
-/* ===== HOW IT WORKS ===== */
-.steps{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:25px;
-}
-
-.step{
-  background:linear-gradient(135deg,#ffffff,#f1f5f9);
-  padding:25px;
-  border-radius:16px;
-}
-
-.step span{
-  font-size:28px;
-  font-weight:800;
-  color:var(--primary);
-}
-
-/* ===== CTA ===== */
-.cta{
-  background:var(--dark);
-  color:#fff;
-  padding:60px 20px;
-  text-align:center;
-}
-
-.cta h2{
-  margin-top:0;
-  font-size:30px;
+.feature-card p{
+  font-size:14px;
+  line-height:1.6;
 }
 
 /* ===== FOOTER ===== */
 footer{
+  margin-top:80px;
   background:#020617;
-  color:#cbd5f5;
+  color:#94a3b8;
   text-align:center;
-  padding:25px;
+  padding:28px 15px;
   font-size:14px;
+  border-top:1px solid rgba(255,255,255,0.08);
 }
 
 footer a{
-  color:#7dd3fc;
+  color:#93c5fd;
   text-decoration:none;
-  margin:0 10px;
+  margin:0 8px;
 }
 
 @media(max-width:600px){
-  .hero h1{font-size:28px}
+  header h1{font-size:24px}
+  .hero-text h2{font-size:26px}
 }
 </style>
 </head>
@@ -206,88 +183,68 @@ footer a{
 <body>
 
 <header>
-  <div class="nav">
-    <div class="logo">TaskFlow</div>
-    <div>
-      <a href="login.html">Login</a>
-      <a href="register.html">Sign Up</a>
-    </div>
-  </div>
-
-  <div class="hero">
-    <h1>Complete Simple Online Tasks & Earn Real Money</h1>
-    <p>No experience. No referrals. Get paid for completing verified tasks from global brands.</p>
-
-    <div class="hero-buttons">
-      <a href="register.html" class="btn primary">Get Started</a>
-      <a href="login.html" class="btn secondary">Login</a>
-    </div>
-  </div>
+  <h1>TaskEarn</h1>
+  <p>Earn real money by completing simple online tasks</p>
 </header>
 
-<div class="stats">
-  <div class="stat">
-    <h3>₦0</h3>
-    <p>Minimum Signup Fee</p>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="register.html">Register</a>
+  <a href="login.html">Login</a>
+</nav>
+
+<div class="container">
+
+<section class="hero">
+  <div class="hero-text">
+    <h2>Turn Simple Tasks Into Cash 💸</h2>
+    <p>
+      TaskEarn connects you with verified online tasks like app installs,
+      sign-ups, and quick actions. Complete tasks, submit proof,
+      and earn directly into your wallet.
+    </p>
+
+    <div class="cta-buttons">
+      <a href="register.html" class="btn primary">Get Started</a>
+      <a href="login.html" class="btn secondary">I Have an Account</a>
+    </div>
   </div>
-  <div class="stat">
-    <h3>5–10 mins</h3>
-    <p>Average Task Time</p>
+
+  <div>
+    <img src="https://via.placeholder.com/420x280?text=Earn+Online" alt="Earn Online">
   </div>
-  <div class="stat">
-    <h3>Instant</h3>
-    <p>Wallet Updates</p>
+</section>
+
+<section class="features">
+  <div class="feature-card">
+    <h3>📝 Simple Tasks</h3>
+    <p>No skills required. Follow instructions and submit proof.</p>
   </div>
+
+  <div class="feature-card">
+    <h3>💰 Fair Earnings</h3>
+    <p>Clear rewards per task. No hidden rules or tricks.</p>
+  </div>
+
+  <div class="feature-card">
+    <h3>⏱ Fast Review</h3>
+    <p>Tasks are reviewed quickly so withdrawals come faster.</p>
+  </div>
+
+  <div class="feature-card">
+    <h3>🔐 Secure Wallet</h3>
+    <p>Your earnings are protected and withdrawable after reaching the limit.</p>
+  </div>
+</section>
+
 </div>
-
-<section class="section">
-  <h2>Why TaskFlow?</h2>
-  <div class="features">
-    <div class="feature">
-      <h4>Verified Tasks</h4>
-      <p>Only trusted CPA and partner tasks. No fake jobs.</p>
-    </div>
-    <div class="feature">
-      <h4>Fast Withdrawals</h4>
-      <p>Withdraw earnings once you reach the minimum balance.</p>
-    </div>
-    <div class="feature">
-      <h4>Mobile Friendly</h4>
-      <p>Works perfectly on Android and iPhone.</p>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <h2>How It Works</h2>
-  <div class="steps">
-    <div class="step">
-      <span>1</span>
-      <p>Create a free account</p>
-    </div>
-    <div class="step">
-      <span>2</span>
-      <p>Complete available tasks</p>
-    </div>
-    <div class="step">
-      <span>3</span>
-      <p>Earn & withdraw money</p>
-    </div>
-  </div>
-</section>
-
-<section class="cta">
-  <h2>Start Earning Today</h2>
-  <p>Join thousands of users completing tasks daily.</p>
-  <a href="register.html" class="btn primary">Create Free Account</a>
-</section>
 
 <footer>
   <p>
-    <a href="terms.html">Terms</a> |
+    © 2026 TaskEarn •
+    <a href="terms.html">Terms</a> •
     <a href="privacy.html">Privacy</a>
   </p>
-  <p>© 2026 TaskFlow. All rights reserved.</p>
 </footer>
 
 </body>

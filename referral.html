@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Referrals | TaskEarn</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:Inter, sans-serif;
+  background:#f4f6fb;
+}
+.header{
+  background:#111827;
+  color:#fff;
+  padding:18px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.header a{
+  color:#fff;
+  text-decoration:none;
+  font-size:20px;
+}
+.header span{
+  font-size:18px;
+  font-weight:600;
+}
+.container{
+  padding:20px;
+}
+.card{
+  background:#fff;
+  border-radius:18px;
+  padding:22px;
+  box-shadow:0 15px 35px rgba(0,0,0,.06);
+  margin-bottom:20px;
+}
+.card h3{
+  margin:0 0 8px;
+  color:#111827;
+}
+.card p{
+  margin:0;
+  font-size:14px;
+  color:#6b7280;
+}
+.ref-box{
+  margin-top:15px;
+  display:flex;
+  gap:10px;
+}
+.ref-box input{
+  flex:1;
+  padding:14px;
+  border-radius:12px;
+  border:1px solid #e5e7eb;
+  font-size:14px;
+}
+.ref-box button{
+  padding:14px 18px;
+  border:none;
+  border-radius:12px;
+  background:#111827;
+  color:#fff;
+  font-weight:600;
+  cursor:pointer;
+}
+.stats{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+}
+.stat{
+  background:linear-gradient(135deg,#111827,#1f2937);
+  color:#fff;
+  border-radius:16px;
+  padding:20px;
+}
+.stat p{
+  margin:0;
+  font-size:13px;
+  opacity:.8;
+}
+.stat h2{
+  margin-top:6px;
+  font-size:24px;
+}
+.notice{
+  background:#ecfeff;
+  border-left:4px solid #06b6d4;
+  padding:14px;
+  border-radius:12px;
+  font-size:14px;
+  color:#164e63;
+}
+.success{
+  display:none;
+  margin-top:10px;
+  color:#16a34a;
+  font-weight:600;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+  <a href="dashboard.html">←</a>
+  <span>Referrals</span>
+</div>
+
+<div class="container">
+
+  <div class="card">
+    <h3>Your Referral Link</h3>
+    <p>Invite friends and earn ₦500 for each active referral</p>
+
+    <div class="ref-box">
+      <input id="refLink" value="https://taskearn.com/register?ref=USER123" readonly>
+      <button onclick="copyLink()">Copy</button>
+    </div>
+
+    <div class="success" id="copied">✅ Link copied!</div>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <p>Total Referrals</p>
+      <h2>12</h2>
+    </div>
+    <div class="stat">
+      <p>Referral Earnings</p>
+      <h2>₦6,000</h2>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>How It Works</h3>
+    <div class="notice">
+      🔹 Share your referral link<br>
+      🔹 Friend registers & completes a task<br>
+      🔹 You earn ₦500 instantly
+    </div>
+  </div>
+
+</div>
+
+<script>
+function copyLink(){
+  const link = document.getElementById("refLink");
+  link.select();
+  link.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.getElementById("copied").style.display = "block";
+}
+</script>
+
+</body>
+</html>

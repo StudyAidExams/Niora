@@ -9,36 +9,42 @@
 * { box-sizing: border-box; margin:0; padding:0; }
 body {
   font-family: 'Inter', sans-serif;
-  background: radial-gradient(#0a1b3a 0%, #00102b 100%);
-  color: #fff;
+  background: #f5f7fb;
+  color: #222;
   min-height: 100vh;
-}
-
-/* Stars Background */
-body::before {
-  content: '';
-  position: fixed;
-  width: 200%;
-  height: 200%;
-  background: url('https://i.ibb.co/9qLzwM2/stars.png') repeat;
-  background-size: contain;
-  z-index: 0;
-  opacity: 0.25;
 }
 
 header {
   text-align: center;
-  padding: 25px 16px;
-  background: linear-gradient(135deg, #0a7cff, #003366);
-  border-bottom: 2px solid #004080;
-  z-index: 1;
-  position: relative;
+  padding: 28px 16px;
+  background: linear-gradient(135deg, #0a7cff, #0056c7);
+  color: #fff;
 }
 
 header h1 { font-size: 26px; font-weight: 700; }
-header p { margin-top: 5px; opacity: 0.9; font-size: 14px; }
+header p { margin-top: 5px; font-size: 14px; opacity: 0.9; }
 
-.container { max-width: 1000px; margin:auto; padding:20px; z-index:1; position:relative; }
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 12px 0;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+nav a {
+  text-decoration:none;
+  color:#0a7cff;
+  font-weight:600;
+  padding:6px 14px;
+  border-radius:20px;
+  transition: background 0.2s;
+}
+
+nav a:hover { background: #e8f1ff; }
+
+.container { max-width: 1000px; margin:auto; padding:20px; }
 
 .balance-cards {
   display: flex;
@@ -48,13 +54,13 @@ header p { margin-top: 5px; opacity: 0.9; font-size: 14px; }
 }
 
 .card {
-  background: rgba(255,255,255,0.05);
+  background: #fff;
   flex: 1;
   min-width: 180px;
   padding: 18px 15px;
   border-radius: 10px;
   text-align: center;
-  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
 }
 
 .card h2 { color:#0a7cff; font-size:20px; margin-bottom:5px; }
@@ -67,45 +73,26 @@ header p { margin-top: 5px; opacity: 0.9; font-size: 14px; }
 }
 
 .task-card {
-  background: rgba(255,255,255,0.05);
+  background: #fff;
   padding:18px 15px;
   border-radius:10px;
   transition: transform 0.2s;
-  backdrop-filter: blur(6px);
   cursor: pointer;
   border-left: 4px solid #0a7cff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
-.task-card:hover { transform: translateY(-4px); }
+.task-card:hover { transform: translateY(-3px); }
 
-.task-card h3 { margin-bottom:8px; color:#fff; font-size:18px; }
+.task-card h3 { margin-bottom:8px; color:#0a7cff; font-size:18px; }
 .task-card p { font-size:14px; opacity:0.8; margin-bottom:8px; }
-.task-card .reward { font-weight:700; color:#00ffb0; }
-
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-bottom:20px;
-}
-
-nav a {
-  text-decoration:none;
-  color:#0a7cff;
-  font-weight:600;
-  padding:6px 14px;
-  border-radius:20px;
-  background: rgba(255,255,255,0.05);
-  transition: background 0.2s;
-}
-
-nav a:hover { background: rgba(255,255,255,0.12); }
+.task-card .reward { font-weight:700; color:#00aa00; }
 
 footer {
   margin-top:40px;
   text-align:center;
   font-size:14px;
-  color:#aaa;
+  color:#777;
 }
 
 footer a { color:#0a7cff; text-decoration:none; margin:0 6px; }
@@ -116,6 +103,7 @@ footer a { color:#0a7cff; text-decoration:none; margin:0 6px; }
 </style>
 </head>
 <body>
+
 <header>
   <h1>TaskEarn Dashboard</h1>
   <p>See available tasks and earn instantly</p>
@@ -172,7 +160,6 @@ footer a { color:#0a7cff; text-decoration:none; margin:0 6px; }
       <p>Fill a quick survey and earn cash.</p>
       <p class="reward">Reward: ₦250</p>
     </a>
-
   </div>
 
 </div>
@@ -180,5 +167,6 @@ footer a { color:#0a7cff; text-decoration:none; margin:0 6px; }
 <footer>
   © 2026 TaskEarn • <a href="terms.html">Terms</a> • <a href="privacy.html">Privacy</a>
 </footer>
+
 </body>
 </html>

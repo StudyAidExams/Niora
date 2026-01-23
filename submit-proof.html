@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Submit Proof | Earn Tasks</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:Inter, sans-serif;
+  background:#f4f6fb;
+}
+.header{
+  background:#111827;
+  color:#fff;
+  padding:18px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.header a{
+  color:#fff;
+  text-decoration:none;
+  font-size:20px;
+}
+.header span{
+  font-size:18px;
+  font-weight:600;
+}
+.container{
+  padding:20px;
+}
+.card{
+  background:#fff;
+  border-radius:16px;
+  padding:20px;
+  box-shadow:0 12px 30px rgba(0,0,0,.06);
+}
+.label{
+  font-weight:600;
+  margin-bottom:8px;
+  display:block;
+  color:#374151;
+}
+input, textarea{
+  width:100%;
+  padding:14px;
+  border-radius:12px;
+  border:1px solid #e5e7eb;
+  font-size:15px;
+  outline:none;
+}
+textarea{
+  resize:none;
+  height:100px;
+}
+input:focus, textarea:focus{
+  border-color:#111827;
+}
+.upload{
+  border:2px dashed #d1d5db;
+  padding:20px;
+  border-radius:14px;
+  text-align:center;
+  color:#6b7280;
+  font-size:14px;
+}
+.upload input{
+  border:none;
+}
+.note{
+  background:#ecfeff;
+  border-left:4px solid #06b6d4;
+  padding:14px;
+  border-radius:10px;
+  font-size:14px;
+  color:#164e63;
+  margin-top:15px;
+}
+.btn{
+  margin-top:20px;
+  width:100%;
+  background:#111827;
+  color:#fff;
+  padding:18px;
+  border:none;
+  border-radius:14px;
+  font-size:16px;
+  font-weight:600;
+  cursor:pointer;
+}
+.success{
+  display:none;
+  text-align:center;
+  margin-top:20px;
+  color:#16a34a;
+  font-weight:600;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+  <a href="task.html">←</a>
+  <span>Submit Proof</span>
+</div>
+
+<div class="container">
+
+  <div class="card">
+
+    <label class="label">Task URL (Optional)</label>
+    <input type="text" placeholder="Paste the website link here">
+
+    <br><br>
+
+    <label class="label">Screenshot Proof</label>
+    <div class="upload">
+      <input type="file" accept="image/*">
+      <p>Upload clear screenshot</p>
+    </div>
+
+    <br>
+
+    <label class="label">Additional Note (Optional)</label>
+    <textarea placeholder="Any extra explanation..."></textarea>
+
+    <div class="note">
+      ⏳ Task proof is reviewed within 24 hours.
+    </div>
+
+    <button class="btn" onclick="submitTask()">Submit Proof</button>
+
+    <div class="success" id="successMsg">
+      ✅ Proof submitted successfully!
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+function submitTask(){
+  document.getElementById("successMsg").style.display = "block";
+}
+</script>
+
+</body>
+</html>

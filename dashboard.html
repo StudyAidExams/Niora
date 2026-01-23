@@ -3,102 +3,182 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dashboard | Earn Tasks</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<title>TaskEarn – Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-body{
-  margin:0;
-  font-family:Inter, sans-serif;
-  background:#f4f6fb;
+* { box-sizing: border-box; margin:0; padding:0; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: radial-gradient(#0a1b3a 0%, #00102b 100%);
+  color: #fff;
+  min-height: 100vh;
 }
-.header{
-  background:#111827;
-  color:#fff;
-  padding:20px;
-  font-size:20px;
-  font-weight:700;
+
+/* Stars Background */
+body::before {
+  content: '';
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  background: url('https://i.ibb.co/9qLzwM2/stars.png') repeat;
+  background-size: contain;
+  z-index: 0;
+  opacity: 0.25;
 }
-.container{
-  padding:20px;
+
+header {
+  text-align: center;
+  padding: 25px 16px;
+  background: linear-gradient(135deg, #0a7cff, #003366);
+  border-bottom: 2px solid #004080;
+  z-index: 1;
+  position: relative;
 }
-.card{
-  background:#fff;
-  border-radius:14px;
-  padding:20px;
-  margin-bottom:15px;
-  box-shadow:0 10px 25px rgba(0,0,0,.06);
+
+header h1 { font-size: 26px; font-weight: 700; }
+header p { margin-top: 5px; opacity: 0.9; font-size: 14px; }
+
+.container { max-width: 1000px; margin:auto; padding:20px; z-index:1; position:relative; }
+
+.balance-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 25px;
 }
-.balance{
-  font-size:28px;
-  font-weight:700;
-  color:#16a34a;
+
+.card {
+  background: rgba(255,255,255,0.05);
+  flex: 1;
+  min-width: 180px;
+  padding: 18px 15px;
+  border-radius: 10px;
+  text-align: center;
+  backdrop-filter: blur(6px);
 }
-.small{
-  color:#6b7280;
-  font-size:14px;
+
+.card h2 { color:#0a7cff; font-size:20px; margin-bottom:5px; }
+.card p { font-size:14px; opacity:0.8; }
+
+.tasks-feed {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
 }
-.actions{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:15px;
+
+.task-card {
+  background: rgba(255,255,255,0.05);
+  padding:18px 15px;
+  border-radius:10px;
+  transition: transform 0.2s;
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+  border-left: 4px solid #0a7cff;
 }
-.action{
+
+.task-card:hover { transform: translateY(-4px); }
+
+.task-card h3 { margin-bottom:8px; color:#fff; font-size:18px; }
+.task-card p { font-size:14px; opacity:0.8; margin-bottom:8px; }
+.task-card .reward { font-weight:700; color:#00ffb0; }
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom:20px;
+}
+
+nav a {
   text-decoration:none;
-  background:#111827;
-  color:#fff;
-  padding:16px;
+  color:#0a7cff;
+  font-weight:600;
+  padding:6px 14px;
+  border-radius:20px;
+  background: rgba(255,255,255,0.05);
+  transition: background 0.2s;
+}
+
+nav a:hover { background: rgba(255,255,255,0.12); }
+
+footer {
+  margin-top:40px;
   text-align:center;
-  border-radius:12px;
-  font-weight:600;
-}
-.nav{
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  background:#fff;
-  display:flex;
-  justify-content:space-around;
-  padding:12px 0;
-  box-shadow:0 -5px 20px rgba(0,0,0,.08);
-}
-.nav a{
-  text-decoration:none;
-  color:#111827;
-  font-weight:600;
   font-size:14px;
+  color:#aaa;
+}
+
+footer a { color:#0a7cff; text-decoration:none; margin:0 6px; }
+
+@media(max-width:600px){
+  header h1{ font-size:22px; }
 }
 </style>
 </head>
-
 <body>
+<header>
+  <h1>TaskEarn Dashboard</h1>
+  <p>See available tasks and earn instantly</p>
+</header>
 
-<div class="header">Dashboard</div>
+<nav>
+  <a href="wallet.html">Wallet</a>
+  <a href="referral.html">Referrals</a>
+  <a href="withdraw.html">Withdraw</a>
+  <a href="index.html">Logout</a>
+</nav>
 
 <div class="container">
 
-  <div class="card">
-    <div class="small">Available Balance</div>
-    <div class="balance">₦0.00</div>
+  <!-- Balance Cards -->
+  <div class="balance-cards">
+    <div class="card">
+      <h2>₦1,250</h2>
+      <p>Current Balance</p>
+    </div>
+    <div class="card">
+      <h2>₦400</h2>
+      <p>Pending Approval</p>
+    </div>
+    <div class="card">
+      <h2>3</h2>
+      <p>Completed Tasks</p>
+    </div>
   </div>
 
-  <div class="card">
-    <div class="small">Pending Earnings</div>
-    <strong>₦0.00</strong>
-  </div>
+  <!-- Tasks Feed -->
+  <h2>Available Tasks</h2>
+  <div class="tasks-feed">
+    <a href="task.html?task=insta-follow" class="task-card">
+      <h3>Instagram Follow</h3>
+      <p>Follow our Instagram page to earn reward.</p>
+      <p class="reward">Reward: ₦200</p>
+    </a>
 
-  <div class="actions">
-    <a class="action" href="tasks.html">View Tasks</a>
-    <a class="action" href="withdraw.html">Withdraw</a>
+    <a href="task.html?task=youtube-watch" class="task-card">
+      <h3>Watch YouTube Video</h3>
+      <p>Watch a short video and earn instantly.</p>
+      <p class="reward">Reward: ₦150</p>
+    </a>
+
+    <a href="task.html?task=app-install" class="task-card">
+      <h3>Install App</h3>
+      <p>Install the app and submit proof to get reward.</p>
+      <p class="reward">Reward: ₦300</p>
+    </a>
+
+    <a href="task.html?task=survey" class="task-card">
+      <h3>Complete Survey</h3>
+      <p>Fill a quick survey and earn cash.</p>
+      <p class="reward">Reward: ₦250</p>
+    </a>
+
   </div>
 
 </div>
 
-<div class="nav">
-  <a href="dashboard.html">Home</a>
-  <a href="tasks.html">Tasks</a>
-  <a href="wallet.html">Wallet</a>
-</div>
-
+<footer>
+  © 2026 TaskEarn • <a href="terms.html">Terms</a> • <a href="privacy.html">Privacy</a>
+</footer>
 </body>
 </html>

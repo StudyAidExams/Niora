@@ -6,7 +6,7 @@
 <title>TaskEarn – Dashboard</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box}
+*{box-sizing:border-box;}
 body{
   margin:0;
   font-family:'Inter',sans-serif;
@@ -15,6 +15,7 @@ body{
     radial-gradient(circle at 20% 30%, rgba(255,255,255,0.08), transparent 40%),
     radial-gradient(circle at 80% 20%, rgba(255,255,255,0.06), transparent 35%),
     linear-gradient(180deg,#020617,#020617);
+  padding-bottom:70px; /* space for bottom nav */
 }
 
 /* Header */
@@ -26,38 +27,11 @@ header{
 header h1{margin:0;font-size:28px;font-weight:700}
 header p{margin-top:8px;opacity:.9}
 
-/* Nav */
-nav{
-  display:flex;
-  justify-content:center;
-  gap:14px;
-  padding:14px;
-  background:rgba(2,6,23,0.85);
-  backdrop-filter:blur(6px);
-}
-nav a{
-  text-decoration:none;
-  color:#c7d2fe;
-  font-weight:600;
-  padding:7px 16px;
-  border-radius:20px;
-}
-nav a:hover{background:rgba(99,102,241,0.18);color:#fff}
-
 /* Container */
 .container{
   max-width:900px;
   margin:auto;
   padding:28px 16px;
-}
-
-/* Back */
-.back-btn{
-  display:inline-block;
-  margin-bottom:20px;
-  color:#93c5fd;
-  text-decoration:none;
-  font-weight:600;
 }
 
 /* Wallet Summary */
@@ -138,6 +112,41 @@ nav a:hover{background:rgba(99,102,241,0.18);color:#fff}
   opacity:.85;
   text-align:center;
 }
+
+/* Bottom Navigation */
+.bottom-nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  background:rgba(2,6,23,0.95);
+  display:flex;
+  justify-content:space-around;
+  padding:10px 0;
+  border-top:1px solid rgba(255,255,255,0.08);
+  backdrop-filter:blur(6px);
+  z-index:100;
+}
+.bottom-nav a{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  font-size:12px;
+  text-decoration:none;
+  color:#c7d2fe;
+  font-weight:600;
+}
+.bottom-nav a.active, .bottom-nav a:hover{
+  color:#38bdf8;
+}
+.bottom-nav a span{
+  margin-top:4px;
+}
+
+/* Icons (simple Unicode for demo) */
+.bottom-nav a i{
+  font-size:20px;
+}
 </style>
 </head>
 <body>
@@ -147,15 +156,7 @@ nav a:hover{background:rgba(99,102,241,0.18);color:#fff}
   <p>Welcome back! Complete tasks and track your earnings</p>
 </header>
 
-<nav>
-  <a href="index.html">Home</a>
-  <a href="dashboard.html">Dashboard</a>
-  <a href="wallet.html">Wallet</a>
-  <a href="profile.html">Profile</a>
-</nav>
-
 <div class="container">
-  <a href="index.html" class="back-btn">← Back to Home</a>
 
   <!-- Wallet Summary -->
   <div class="wallet">
@@ -215,6 +216,15 @@ nav a:hover{background:rgba(99,102,241,0.18);color:#fff}
   </div>
 </div>
 
+<!-- Bottom Navigation -->
+<div class="bottom-nav">
+  <a href="dashboard.html" class="active"><i>🏠</i><span>Home</span></a>
+  <a href="wallet.html"><i>💰</i><span>Wallet</span></a>
+  <a href="withdraw.html"><i>💸</i><span>Withdraw</span></a>
+  <a href="profile.html"><i>👤</i><span>Profile</span></a>
+  <a href="referral.html"><i>🔗</i><span>Referral</span></a>
+</div>
+
 <script>
 function startTask(){
   alert("Task started! (Demo)\nYou’ll submit proof on the next page.");
@@ -222,4 +232,4 @@ function startTask(){
 </script>
 
 </body>
-</html>
+        </html>

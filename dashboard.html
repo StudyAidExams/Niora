@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard | Earn Tasks</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+body{
+  margin:0;
+  font-family:Inter, sans-serif;
+  background:#f4f6fb;
+}
+.header{
+  background:#111827;
+  color:#fff;
+  padding:20px;
+  font-size:20px;
+  font-weight:700;
+}
+.container{
+  padding:20px;
+}
+.card{
+  background:#fff;
+  border-radius:14px;
+  padding:20px;
+  margin-bottom:15px;
+  box-shadow:0 10px 25px rgba(0,0,0,.06);
+}
+.balance{
+  font-size:28px;
+  font-weight:700;
+  color:#16a34a;
+}
+.small{
+  color:#6b7280;
+  font-size:14px;
+}
+.actions{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+}
+.action{
+  text-decoration:none;
+  background:#111827;
+  color:#fff;
+  padding:16px;
+  text-align:center;
+  border-radius:12px;
+  font-weight:600;
+}
+.nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  background:#fff;
+  display:flex;
+  justify-content:space-around;
+  padding:12px 0;
+  box-shadow:0 -5px 20px rgba(0,0,0,.08);
+}
+.nav a{
+  text-decoration:none;
+  color:#111827;
+  font-weight:600;
+  font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">Dashboard</div>
+
+<div class="container">
+
+  <div class="card">
+    <div class="small">Available Balance</div>
+    <div class="balance">₦0.00</div>
+  </div>
+
+  <div class="card">
+    <div class="small">Pending Earnings</div>
+    <strong>₦0.00</strong>
+  </div>
+
+  <div class="actions">
+    <a class="action" href="tasks.html">View Tasks</a>
+    <a class="action" href="withdraw.html">Withdraw</a>
+  </div>
+
+</div>
+
+<div class="nav">
+  <a href="dashboard.html">Home</a>
+  <a href="tasks.html">Tasks</a>
+  <a href="wallet.html">Wallet</a>
+</div>
+
+</body>
+</html>

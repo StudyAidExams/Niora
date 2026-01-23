@@ -6,144 +6,296 @@
 <title>TaskEarn – Profile</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-* { box-sizing: border-box; }
-body {
-  margin: 0;
-  font-family: 'Inter', Arial, sans-serif;
-  color: #e5e7eb;
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:'Inter',sans-serif;
+  color:#e5e7eb;
   background:
     radial-gradient(circle at 20% 30%, rgba(255,255,255,0.08), transparent 40%),
     radial-gradient(circle at 80% 20%, rgba(255,255,255,0.06), transparent 35%),
-    radial-gradient(circle at 50% 80%, rgba(255,255,255,0.05), transparent 40%),
-    linear-gradient(180deg,#020617,#020617,#020617);
+    linear-gradient(180deg,#020617,#020617);
+  padding-bottom:70px;
 }
 
-/* Header & Nav */
-header {
-  background:
-    radial-gradient(circle at top, rgba(255,255,255,0.12), transparent 60%),
-    linear-gradient(135deg,#020617,#020617,#020617);
-  padding: 32px 16px;
-  text-align: center;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-header h1 { margin:0; font-size:28px; font-weight:700; }
-header p { margin-top:8px; font-size:15px; opacity:0.9; }
-
-nav {
-  display:flex; justify-content:center; gap:14px;
-  padding:14px; background:rgba(2,6,23,0.85); backdrop-filter: blur(6px);
+/* Header */
+header{
+  padding:28px 16px;
+  text-align:center;
   border-bottom:1px solid rgba(255,255,255,0.08);
 }
-nav a {
+header img{
+  height:48px;
+  margin-bottom:12px;
+}
+header h1{margin:0;font-size:26px;font-weight:700}
+header p{margin-top:4px;font-size:14px;opacity:.85;color:#93c5fd;}
+
+/* Container */
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:20px 16px;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+/* Top Info Card */
+.info-card{
+  background:rgba(255,255,255,0.96);
+  border-radius:14px;
+  padding:18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 12px 26px rgba(0,0,0,0.18);
+}
+.info-left{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.info-left h3{
+  margin:0;
+  font-size:16px;
+  font-weight:700;
+  color:#6366f1;
+}
+.info-left p{
+  margin:0;
+  font-size:14px;
+  color:#374151;
+}
+.icons{
+  display:flex;
+  gap:12px;
+  font-size:20px;
+}
+.icons a{
+  color:#6366f1;
+  text-decoration:none;
+}
+.icons a:hover{color:#38bdf8;}
+
+/* Stats Cards */
+.stats{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+  gap:12px;
+}
+.stat-card{
+  background:rgba(255,255,255,0.96);
+  padding:16px;
+  border-radius:12px;
+  text-align:center;
+  box-shadow:0 10px 22px rgba(0,0,0,0.15);
+}
+.stat-card h4{margin:0;font-size:14px;color:#6366f1;font-weight:600;}
+.stat-card p{margin:6px 0 0;font-size:16px;font-weight:700;color:#16a34a;}
+
+/* Wallet Section */
+.wallet-section{
+  background:rgba(255,255,255,0.96);
+  padding:18px;
+  border-radius:14px;
+  box-shadow:0 12px 26px rgba(0,0,0,0.18);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.wallet-section .balance{
+  display:flex;
+  flex-direction:column;
+}
+.wallet-section .balance p{
+  margin:4px 0 0;
+  font-size:18px;
+  font-weight:700;
+  color:#16a34a;
+}
+.switch-label{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  font-size:12px;
+  color:#374151;
+  cursor:pointer;
+}
+.switch-label input{
+  width:40px;
+  height:18px;
+  -webkit-appearance:none;
+  background:#d1d5db;
+  border-radius:10px;
+  position:relative;
+  outline:none;
+  cursor:pointer;
+  transition:0.3s;
+}
+.switch-label input:checked{
+  background:#6366f1;
+}
+.switch-label input:before{
+  content:"";
+  position:absolute;
+  width:16px;
+  height:16px;
+  background:#fff;
+  border-radius:50%;
+  top:1px;
+  left:1px;
+  transition:0.3s;
+}
+.switch-label input:checked:before{
+  transform:translateX(22px);
+}
+
+/* Action Cards */
+.action-cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:12px;
+}
+.action-card{
+  background:rgba(255,255,255,0.96);
+  padding:16px;
+  border-radius:12px;
+  text-align:center;
+  box-shadow:0 10px 22px rgba(0,0,0,0.15);
+  font-size:14px;
+  font-weight:600;
+  color:#111827;
+  cursor:pointer;
+  transition:0.2s;
+}
+.action-card:hover{
+  transform:translateY(-2px);
+  background:linear-gradient(135deg,#6366f1,#38bdf8);
+  color:#fff;
+}
+
+/* Bottom Navigation */
+.bottom-nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  background:rgba(2,6,23,0.95);
+  display:flex;
+  justify-content:space-around;
+  padding:10px 0;
+  border-top:1px solid rgba(255,255,255,0.08);
+  backdrop-filter:blur(6px);
+  z-index:100;
+}
+.bottom-nav a{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  font-size:12px;
   text-decoration:none;
   color:#c7d2fe;
   font-weight:600;
-  padding:7px 16px;
-  border-radius:20px;
-  transition:all .25s ease;
 }
-nav a:hover { background:rgba(99,102,241,0.18); color:#fff; }
-
-/* Container */
-.container {
-  max-width: 600px;
-  margin:auto;
-  padding:30px 16px;
+.bottom-nav a.active, .bottom-nav a:hover{
+  color:#38bdf8;
 }
-
-/* Back link */
-.back-btn {
-  display:inline-block;
-  margin-bottom:20px;
-  text-decoration:none;
-  color:#93c5fd;
-  font-weight:600;
+.bottom-nav a span{
+  margin-top:4px;
 }
-
-/* Form */
-form {
-  background: rgba(255,255,255,0.95);
-  padding: 22px;
-  border-radius: 12px;
-  box-shadow: 0 10px 24px rgba(0,0,0,0.2);
-  color:#111827;
-  display:flex;
-  flex-direction:column;
-  gap:16px;
-}
-
-form label {
-  font-weight:600;
-  font-size:14px;
-}
-
-form input {
-  padding:12px;
-  border-radius:8px;
-  border:1px solid #cbd5e1;
-  font-size:14px;
-}
-
-form button {
-  padding:14px;
-  border:none;
-  border-radius:10px;
-  font-weight:600;
-  background: linear-gradient(135deg,#6366f1,#38bdf8);
-  color:#fff;
-  cursor:pointer;
-  transition: all .25s;
-}
-form button:hover { opacity:.9; }
-
-@media(max-width:600px){
-  header h1{font-size:24px;}
+.bottom-nav a i{
+  font-size:20px;
 }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>TaskEarn</h1>
-  <p>Manage your account details</p>
+  <img src="https://via.placeholder.com/120x40?text=TaskRun" alt="TaskRun Logo">
+  <h1>Profile Center</h1>
+  <p>Manage your account and track earnings</p>
 </header>
 
-<nav>
-  <a href="index.html">Home</a>
-  <a href="tasks.html">Tasks</a>
-  <a href="wallet.html">Wallet</a>
-  <a href="profile.html">Profile</a>
-</nav>
-
 <div class="container">
-  <a href="index.html" class="back-btn">← Back to Home</a>
+  <!-- Top Info Card -->
+  <div class="info-card">
+    <div class="info-left">
+      <h3>+234XXXXXXXXX</h3>
+      <p>Invitation Code: <strong>33cf33c7</strong></p>
+    </div>
+    <div class="icons">
+      <a href="#"><i>🎧</i></a>
+      <a href="#"><i>⬇️</i></a>
+      <a href="#"><i>🌐</i></a>
+    </div>
+  </div>
 
-  <h2>Your Profile</h2>
+  <!-- Stats Cards -->
+  <div class="stats">
+    <div class="stat-card">
+      <h4>Total Income</h4>
+      <p>₦3,530</p>
+    </div>
+    <div class="stat-card">
+      <h4>Invited Users</h4>
+      <p>0</p>
+    </div>
+    <div class="stat-card">
+      <h4>Today's Income</h4>
+      <p>₦0</p>
+    </div>
+    <div class="stat-card">
+      <h4>Total Withdrawn</h4>
+      <p>₦0</p>
+    </div>
+  </div>
 
-  <form onsubmit="updateProfile(event)">
-    <label>Full Name</label>
-    <input type="text" id="fullname" value="John Doe" required>
+  <!-- Wallet Section -->
+  <div class="wallet-section">
+    <div class="balance">
+      <p>Balance: ₦0.00</p>
+    </div>
+    <label class="switch-label">
+      <input type="checkbox" id="currencySwitch">
+      $ USD
+    </label>
+    <button style="padding:10px 18px;border:none;border-radius:10px;background:#6366f1;color:#fff;font-weight:600;cursor:pointer;">Withdraw</button>
+  </div>
 
-    <label>Email Address</label>
-    <input type="email" id="email" value="johndoe@example.com" required>
+  <!-- Action Cards -->
+  <div class="action-cards">
+    <div class="action-card">My Earnings</div>
+    <div class="action-card">Earn from Promotion</div>
+    <div class="action-card">Payout Account</div>
+    <div class="action-card">Withdrawal History</div>
+    <div class="action-card">User Agreement</div>
+    <div class="action-card">Privacy Policy</div>
+  </div>
 
-    <label>WhatsApp Number</label>
-    <input type="text" id="whatsapp" value="08012345678" required>
+</div>
 
-    <label>Change Password</label>
-    <input type="password" id="password" placeholder="New password">
-
-    <button type="submit">Save Changes</button>
-  </form>
+<!-- Bottom Navigation -->
+<div class="bottom-nav">
+  <a href="dashboard.html"><i>🏠</i><span>Home</span></a>
+  <a href="wallet.html"><i>💰</i><span>Wallet</span></a>
+  <a href="withdraw.html"><i>💸</i><span>Withdraw</span></a>
+  <a href="profile.html" class="active"><i>👤</i><span>Profile</span></a>
+  <a href="referral.html"><i>🔗</i><span>Referral</span></a>
 </div>
 
 <script>
-function updateProfile(e){
-  e.preventDefault();
-  alert('Profile updated successfully! (demo)');
-}
+// Currency Switch Demo
+const switchEl = document.getElementById('currencySwitch');
+switchEl.addEventListener('change',()=>{
+  const balanceEl = document.querySelector('.wallet-section .balance p');
+  if(switchEl.checked){
+    balanceEl.textContent = 'Balance: $0.00';
+  } else {
+    balanceEl.textContent = 'Balance: ₦0.00';
+  }
+});
 </script>
 
 </body>
-</html>
+                 </html>

@@ -3,161 +3,218 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Referrals | TaskEarn</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<title>TaskRun – Invite & Earn</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+*{box-sizing:border-box}
 body{
   margin:0;
-  font-family:Inter, sans-serif;
-  background:#f4f6fb;
+  font-family:'Inter',sans-serif;
+  color:#e5e7eb;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.08), transparent 40%),
+    radial-gradient(circle at 80% 20%, rgba(255,255,255,0.06), transparent 35%),
+    linear-gradient(180deg,#020617,#020617);
 }
-.header{
-  background:#111827;
-  color:#fff;
-  padding:18px;
-  display:flex;
-  align-items:center;
-  gap:12px;
+
+/* Header */
+header{
+  padding:28px 16px;
+  text-align:center;
+  border-bottom:1px solid rgba(255,255,255,0.08);
 }
-.header a{
-  color:#fff;
-  text-decoration:none;
-  font-size:20px;
-}
-.header span{
-  font-size:18px;
-  font-weight:600;
-}
+header h1{margin:0;font-size:26px;font-weight:700}
+header p{margin-top:8px;opacity:.9}
+
+/* Container */
 .container{
+  max-width:900px;
+  margin:auto;
+  padding:22px 16px 90px;
+}
+
+/* Highlight */
+.highlight{
+  background:linear-gradient(135deg,#6366f1,#38bdf8);
   padding:20px;
-}
-.card{
-  background:#fff;
-  border-radius:18px;
-  padding:22px;
-  box-shadow:0 15px 35px rgba(0,0,0,.06);
-  margin-bottom:20px;
-}
-.card h3{
-  margin:0 0 8px;
-  color:#111827;
-}
-.card p{
-  margin:0;
-  font-size:14px;
-  color:#6b7280;
-}
-.ref-box{
-  margin-top:15px;
-  display:flex;
-  gap:10px;
-}
-.ref-box input{
-  flex:1;
-  padding:14px;
-  border-radius:12px;
-  border:1px solid #e5e7eb;
-  font-size:14px;
-}
-.ref-box button{
-  padding:14px 18px;
-  border:none;
-  border-radius:12px;
-  background:#111827;
-  color:#fff;
-  font-weight:600;
-  cursor:pointer;
-}
-.stats{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:15px;
-}
-.stat{
-  background:linear-gradient(135deg,#111827,#1f2937);
-  color:#fff;
   border-radius:16px;
-  padding:20px;
+  text-align:center;
+  color:#fff;
+  margin-bottom:24px;
 }
-.stat p{
-  margin:0;
-  font-size:13px;
-  opacity:.8;
+.highlight strong{font-size:22px}
+
+/* Steps */
+.steps{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:26px;
 }
-.stat h2{
-  margin-top:6px;
-  font-size:24px;
-}
-.notice{
-  background:#ecfeff;
-  border-left:4px solid #06b6d4;
+.step{
+  flex:1;
+  background:rgba(255,255,255,0.96);
+  color:#111827;
   padding:14px;
-  border-radius:12px;
+  border-radius:14px;
+  text-align:center;
   font-size:14px;
-  color:#164e63;
-}
-.success{
-  display:none;
-  margin-top:10px;
-  color:#16a34a;
   font-weight:600;
 }
+
+/* Card */
+.card{
+  background:rgba(255,255,255,0.96);
+  color:#111827;
+  padding:18px;
+  border-radius:16px;
+  margin-bottom:20px;
+  box-shadow:0 12px 26px rgba(0,0,0,0.18);
+}
+
+/* Referral row */
+.ref-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:#f1f5f9;
+  padding:10px 12px;
+  border-radius:10px;
+  margin-top:10px;
+  font-size:14px;
+}
+.copy{
+  background:#6366f1;
+  color:#fff;
+  border:none;
+  padding:6px 12px;
+  border-radius:8px;
+  font-weight:600;
+}
+
+/* Bonus item */
+.bonus{
+  display:flex;
+  justify-content:space-between;
+  gap:14px;
+  margin-bottom:14px;
+}
+.bonus h4{margin:0 0 6px}
+.bonus span{color:#16a34a;font-weight:700}
+
+/* Instructions */
+.instructions{
+  font-size:14px;
+  color:#374151;
+  line-height:1.6;
+}
+
+/* Bottom Nav */
+.bottom-nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  background:rgba(2,6,23,0.95);
+  display:flex;
+  justify-content:space-around;
+  padding:10px 0;
+  border-top:1px solid rgba(255,255,255,0.08);
+}
+.bottom-nav a{
+  color:#c7d2fe;
+  text-decoration:none;
+  font-size:13px;
+}
+.bottom-nav a.active{color:#38bdf8;font-weight:700}
 </style>
 </head>
 
 <body>
 
-<div class="header">
-  <a href="dashboard.html">←</a>
-  <span>Referrals</span>
-</div>
+<header>
+  <h1>Invite & Earn</h1>
+  <p>Earn commissions when your referrals complete tasks</p>
+</header>
 
 <div class="container">
 
-  <div class="card">
-    <h3>Your Referral Link</h3>
-    <p>Invite friends and earn ₦500 for each active referral</p>
-
-    <div class="ref-box">
-      <input id="refLink" value="https://taskearn.com/register?ref=USER123" readonly>
-      <button onclick="copyLink()">Copy</button>
-    </div>
-
-    <div class="success" id="copied">✅ Link copied!</div>
+  <div class="highlight">
+    Invite friends & earn up to <br>
+    <strong>₦1,500+ per active referral</strong>
   </div>
 
-  <div class="stats">
-    <div class="stat">
-      <p>Total Referrals</p>
-      <h2>12</h2>
-    </div>
-    <div class="stat">
-      <p>Referral Earnings</p>
-      <h2>₦6,000</h2>
-    </div>
+  <div class="steps">
+    <div class="step">Share Link</div>
+    <div class="step">Register & Tasks</div>
+    <div class="step">Earn Rewards</div>
   </div>
 
   <div class="card">
-    <h3>How It Works</h3>
-    <div class="notice">
-      🔹 Share your referral link<br>
-      🔹 Friend registers & completes a task<br>
-      🔹 You earn ₦500 instantly
+    <h3>Your Referral Details</h3>
+
+    <div class="ref-row">
+      <span>https://taskrun.onrender.com/?ref=XR92KD</span>
+      <button class="copy">Copy</button>
+    </div>
+
+    <div class="ref-row">
+      <span>Referral Code: <strong>XR92KD</strong></span>
+      <button class="copy">Copy</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Invitation Bonuses</h3>
+
+    <div class="bonus">
+      <div>
+        <h4>First Task Bonus</h4>
+        <p>When your referral completes their first task</p>
+      </div>
+      <span>₦300</span>
+    </div>
+
+    <div class="bonus">
+      <div>
+        <h4>Active User Bonus</h4>
+        <p>When referral completes multiple tasks</p>
+      </div>
+      <span>₦800</span>
+    </div>
+
+    <div class="bonus">
+      <div>
+        <h4>First Withdrawal Bonus</h4>
+        <p>When referral withdraws for the first time</p>
+      </div>
+      <span>₦400</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Commission Share</h3>
+    <p>Earn <strong>5%</strong> of every successful withdrawal made by your referral.</p>
+  </div>
+
+  <div class="card">
+    <h3>Instructions</h3>
+    <div class="instructions">
+      <!-- You will fill this later -->
+      Add referral rules and conditions here.
     </div>
   </div>
 
 </div>
 
-<script>
-function copyLink(){
-  const link = document.getElementById("refLink");
-  link.select();
-  link.setSelectionRange(0, 99999);
-  document.execCommand("copy");
-  document.getElementById("copied").style.display = "block";
-}
-</script>
+<div class="bottom-nav">
+  <a href="dashboard.html">Home</a>
+  <a href="wallet.html">Wallet</a>
+  <a href="withdraw.html">Withdraw</a>
+  <a href="referral.html" class="active">Referral</a>
+  <a href="profile.html">Profile</a>
+</div>
 
 </body>
 </html>
